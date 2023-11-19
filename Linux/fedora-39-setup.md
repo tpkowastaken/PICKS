@@ -12,8 +12,9 @@ and add these two lines
 
 ```
 fastestmirror=true
-max_parallel_downloads=10 (press Ctrl + O & Ctrl + X to save)
+max_parallel_downloads=10
 ```
+(press Ctrl + O & Ctrl + X to save)
 
 # Disable discord switching profiles for bluetooth headset
 
