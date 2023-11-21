@@ -79,3 +79,10 @@ sudo nano /var/lib/sddm/.config/kcminputrc
 [Keyboard]
 NumLock=0
 ```
+
+# Disable sleep/suspend
+
+```bash
+sudo systemctl mask suspend.target
+sudo systemctl mask sleep.target
+```
