@@ -86,3 +86,27 @@ NumLock=0
 sudo systemctl mask suspend.target
 sudo systemctl mask sleep.target
 ```
+
+## Remove it from the menu
+
+```bash
+sudo mkdir -p /usr/local/etc/polkit-1/rules.d/
+sudo nano /usr/local/etc/polkit-1/rules.d/51-disable-suspend.rules
+```
+
+```polkit.addRule(function(action, subject) {
+    if (action.id == "org.freedesktop.login1.suspend" ||
+        action.id == "org.freedesktop.login1.suspend-multiple-sessions" ||
+        action.id == "org.freedesktop.login1.hibernate" ||
+        action.id == "org.freedesktop.login1.hibernate-multiple-sessions" ||
+        action.id == "org.freedesktop.consolekit.system.suspend" ||
+        action.id == "org.freedesktop.consolekit.system.suspend-multiple-users" ||
+        action.id == "org.freedesktop.consolekit.system.hibernate" ||
+        action.id == "org.freedesktop.consolekit.system.hibernate-multiple-users" ||
+        action.id == "org.freedesktop.consolekit.system.hybridsleep" ||
+        action.id == "org.freedesktop.consolekit.system.hybridsleep-multiple-users")
+    {
+        return polkit.Result.NO;
+    }
+});
+```
