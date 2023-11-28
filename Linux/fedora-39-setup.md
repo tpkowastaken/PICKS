@@ -110,3 +110,42 @@ sudo nano /usr/local/etc/polkit-1/rules.d/51-disable-suspend.rules
     }
 });
 ```
+
+# Make windows default in grub
+
+https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-configuration
+https://askubuntu.com/questions/52963/how-do-i-set-windows-to-boot-as-the-default-in-the-boot-loader#answer-82965
+https://unix.stackexchange.com/questions/152222/what-is-the-equivalent-of-update-grub-for-rhel-fedora-and-centos-systems
+1. 
+```
+sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+```
+2. 
+```
+sudo grep menuentry /boot/efi/EFI/fedora/grub.cfg
+```
+3. copy the entry you want to boot as default ('Windows Boot Manager (on /dev/nvme0n1p1)' or 'windows' for my computer)
+4.```sudo nano -B /etc/default/grub```
+5. Edit this line or add it if it doesn't exist. You will replace windows boot manager with what you got in 3.
+```GRUB_DEFAULT="Windows Boot Manager (on /dev/nvme0n1p1)"```
+6. apply the changes
+```
+sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+```
+```
+sudo reboot now
+```
+## Remembering the last booted system instead:
+1. ```sudo nano -B /etc/default/grub```
+2. Edit these lines or add them if they don't exist
+```GRUB_DEFAULT=saved```
+```GRUB_SAVEDEFAULT=true```
+3. apply the changes
+```
+sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+```
+```
+sudo reboot now
+```
+
+- -B parameter makes a backup in the directory with the same file and ~ before it. It's safer when working with grub.
