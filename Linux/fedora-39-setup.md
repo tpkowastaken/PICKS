@@ -141,11 +141,18 @@ sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 sudo reboot now
 ```
 ## Remembering the last booted system instead:
-1. ```sudo nano -B /etc/default/grub```
-2. Edit these lines or add them if they don't exist
-```GRUB_DEFAULT=saved```
-```GRUB_SAVEDEFAULT=true```
-3. apply the changes
+1.
+```
+sudo nano -B /etc/default/grub
+```
+3. Edit these lines or add them if they don't exist
+```
+GRUB_DEFAULT=saved
+```
+```
+GRUB_SAVEDEFAULT=true
+```
+5. apply the changes
 ```
 sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 ```
