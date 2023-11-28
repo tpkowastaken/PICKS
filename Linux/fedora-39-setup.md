@@ -113,9 +113,11 @@ sudo nano /usr/local/etc/polkit-1/rules.d/51-disable-suspend.rules
 
 # Make windows default in grub
 
-https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-configuration
-https://askubuntu.com/questions/52963/how-do-i-set-windows-to-boot-as-the-default-in-the-boot-loader#answer-82965
-https://unix.stackexchange.com/questions/152222/what-is-the-equivalent-of-update-grub-for-rhel-fedora-and-centos-systems
+* [https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-configuration](https://www.gnu.org/software/grub/manual/grub/grub.html#Simple-configuration)
+* [https://askubuntu.com/questions/52963/how-do-i-set-windows-to-boot-as-the-default-in-the-boot-loader#answer-82965](https://askubuntu.com/questions/52963/how-do-i-set-windows-to-boot-as-the-default-in-the-boot-loader#answer-82965)
+
+* [https://unix.stackexchange.com/questions/152222/what-is-the-equivalent-of-update-grub-for-rhel-fedora-and-centos-systems](https://unix.stackexchange.com/questions/152222/what-is-the-equivalent-of-update-grub-for-rhel-fedora-and-centos-systems)
+
 1. 
 ```
 sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
