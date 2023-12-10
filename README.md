@@ -13,6 +13,7 @@ As me and the contributors are techy people with day-to-day lives and all sorts 
   * general begginer commands
   * Fedora
   * Ubuntu
+  * All sorts of configurations
 * programming in:
   * Dart
   * Javascript/Typescript
